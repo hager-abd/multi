@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Media record</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="splash-body">
+    <button class="drawer-toggle" onclick="toggleDrawer()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  <div class="drawer">
+    <button onclick="toggleDrawer()"><font size="4">    Choose </font></button>
+    <div class="drawer-content">
+      <a href="splash.html">Home page</a>
+      <a href="index.html">Recording or upload video</a>
+      <a href="videos.html">Display Videos</a>
+      <a href="domeeting.html">Do meeting</a>
+      <a href="joinmeeting.html">Join meeting</a>
+    </div>
+  </div>
+
+  <h1 class="glow-text">Display Videos Here</h1>
+  <button onclick="deleteVideos()" class="clear-button">Clear</button>
+  <div id="videosContainer" class="card-container">
+  </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

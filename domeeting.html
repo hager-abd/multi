@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domeet</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="splash-body">
+    <button class="drawer-toggle" onclick="toggleDrawer()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  <div class="drawer">
+    <button onclick="toggleDrawer()"><font size="4">    Choose </font></button>
+    <div class="drawer-content">
+      <a href="splash.html">Home page</a>
+      <a href="index.html">Recording or upload video</a>
+      <a href="videos.html">Display Videos</a>
+      <a href="domeeting.html">Do meeting</a>
+      <a href="joinmeeting.html">Join meeting</a>
+    </div>
+  </div>
+
+  <h1 class="glow-text">DO Meeting</h1>
+    
+    
+    <label>Enter your name:</label>
+    <input type="text" id="username" required>
+    <button onclick="createMeeting()">Make Meeting</button>
+
+    <p id="meetingInfo" style="display: none;"></p>
+
+    <script src="script1.js"></script>
+
+</body>
+</html>

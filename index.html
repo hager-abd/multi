@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="splash-body">
+    <button class="drawer-toggle" onclick="toggleDrawer()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  <div class="drawer">
+    <button onclick="toggleDrawer()"><font size="4">    Choose </font></button>
+    <div class="drawer-content">
+      <a href="splash.html">Home page</a>
+      <a href="index.html">Recording or upload video</a>
+      <a href="videos.html">Display Videos</a>
+      <a href="domeeting.html">Do meeting</a>
+      <a href="joinmeeting.html">Join meeting</a>
+    </div>
+  </div>
+  <h1 class="glow-text">Record or upload video here</h1>
+    <center><video id="preview" autoplay muted></video></center>
+    <button id="startRecord">
+        <i class="fas fa-video"></i> startRecord
+    </button>
+<button id="stopRecord" disabled>
+    <i id="stopIcon" class="fas fa-stop"></i> stopRecord
+</button>
+    <input type="file" id="videoInput" accept="video/*">
+
+    <script src="script.js"></script>
+</body>
+</html>

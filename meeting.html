@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="splash-body">
+    <h1 class="glow-text">Meeting Started</h1>
+
+    <div id="videoContainerstream"></div>
+    <div id="video-container"></div>
+    <div id="suvideo-container"></div>
+    <button class="end-meeting" onclick="endMeeting()">End Meeting</button>
+
+    <script>
+        let participantName = localStorage.getItem("participantName");
+        if (!participantName) {
+            alert("You are not in the meeting. Please join the meeting first.");
+            window.location.href = "joinmeeting.html"; 
+        } else {
+            console.log("Participant Name:", participantName); 
+        }
+
+        let userStream;  
+
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(stream => {
+            userStream = stream;
+            let videoElement = document.createElement("video");
+            videoElement.srcObject = stream;
+            videoElement.controls = true;
+            videoElement.autoplay = true;
+            videoElement.id = "userVideo"; 
+            document.getElementById("videoContainerstream").appendChild(videoElement);
+
+            let videoContainer = document.createElement("div");
+            videoContainer.classList.add("video-container");
+
+
+            let nameTag = document.createElement("div");
+            nameTag.innerText = (participantName === participantName) ? "Me" : "Me";
+            nameTag.classList.add("video-name");
+
+            let controlsContainer = document.createElement("div");
+            controlsContainer.classList.add("controls");
+
+            let muteButton = document.createElement("button");
+            muteButton.classList.add("control-button");
+            muteButton.innerText = "Mute";
+            muteButton.onclick = toggleAudio;
+
+            let videoButton = document.createElement("button");
+            videoButton.classList.add("control-button");
+            videoButton.innerText = "Turn Off Video";
+            videoButton.onclick = toggleVideo;
+
+            controlsContainer.appendChild(muteButton);
+            controlsContainer.appendChild(videoButton);
+
+            videoContainer.appendChild(nameTag);
+            videoContainer.appendChild(controlsContainer);
+            document.getElementById("videoContainerstream").appendChild(videoContainer);
+        }).catch(error => {
+            alert("Can't access camera or microphone: " + error);
+        });
+             
+
+        function toggleAudio() {
+            let audioTrack = userStream.getAudioTracks()[0];
+            if (audioTrack.enabled) {
+                audioTrack.enabled = false;
+                document.querySelector(".controls .control-button:first-child").innerText = "Unmute";
+            } else {
+                audioTrack.enabled = true;
+                document.querySelector(".controls .control-button:first-child").innerText = "Mute";
+            }
+        }
+
+        function toggleVideo() {
+            let videoTrack = userStream.getVideoTracks()[0];
+            if (videoTrack.enabled) {
+                videoTrack.enabled = false;
+                document.querySelector(".controls .control-button:last-child").innerText = "Turn On Video";
+            } else {
+                videoTrack.enabled = true;
+                document.querySelector(".controls .control-button:last-child").innerText = "Turn Off Video";
+            }
+        }
+
+        function endMeeting() {
+            let mediaStreams = document.querySelectorAll('video');
+            mediaStreams.forEach(stream => {
+                if (stream.srcObject) {
+            stream.srcObject.getTracks().forEach(track => track.stop());
+        }
+            });
+            alert("Meeting Ended");
+            window.location.href = "splash.html";  // Redirect back to home page
+        }
+    </script>
+    <script src="script1.js"></script>
+</body>
+</html>

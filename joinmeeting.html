@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="splash-body">
+    <button class="drawer-toggle" onclick="toggleDrawer()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  <div class="drawer">
+    <button onclick="toggleDrawer()"><font size="4">    Choose </font></button>
+    <div class="drawer-content">
+      <a href="splash.html">Home page</a>
+      <a href="index.html">Recording or upload video</a>
+      <a href="videos.html">Display Videos</a>
+      <a href="domeeting.html">Do meeting</a>
+      <a href="joinmeeting.html">Join meeting</a>
+    </div>
+  </div>
+
+  <h1 class="glow-text">Join meeting now !let's go</h1>
+
+
+    <label>Enter your name:</label>
+    <input type="text" id="username" required>
+      <br><br>
+    <label>Enter meeting id:</label>
+    <input type="text" id="meetingID" required>
+      <br><br>
+    <button onclick="joinMeeting()">Join meeting</button>
+
+    <p id="errorMessage" style="color: red; display: none;"></p>
+
+    <!-- <script>
+        function joinMeeting() {
+            let username = document.getElementById("username").value.trim();
+            let enteredID = document.getElementById("meetingID").value.trim();
+            let storedID = localStorage.getItem("meetingID");
+
+            if (!username || !enteredID) {
+                alert("Please enter all data!!");
+                return;
+            }
+
+            if (enteredID === storedID) {
+                localStorage.setItem("participantName", username);
+
+                window.location.href = "meeting.html";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("errorMessage").innerText = "Not correct please enter another id try agian!!";
+            }
+        }
+    </script> -->
+    <script src="script1.js"></script>
+
+</body>
+</html>

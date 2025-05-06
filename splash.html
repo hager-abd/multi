@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Media Project</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body class="splash-body">
+    <button class="drawer-toggle" onclick="toggleDrawer()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  <div class="drawer">
+    <button onclick="toggleDrawer()"><font size="4">    Choose </font></button>
+    <div class="drawer-content">
+      <a href="splash.html">Home page</a>
+      <a href="index.html">Recording or upload video</a>
+      <a href="videos.html">Display Videos</a>
+      <a href="domeeting.html">Do meeting</a>
+      <a href="joinmeeting.html">Join meeting</a>
+    </div>
+  </div>
+
+  <h1 class="glow-text">Welcome in My Media Videos Streeming</h1>
+
+  <div class="card-splash-container">
+    <div class="card-splash" onclick="location.href='index.html'">
+        <lottie-player src="animations/record.json"
+        background="transparent"
+        speed="1"
+        loop autoplay></lottie-player>
+        <p>Record/Upload video</p>
+    </div>
+    <div class="card-splash" onclick="location.href='videos.html'">
+        <lottie-player src="animations/display.json"
+        background="transparent"
+        speed="1"
+        loop autoplay></lottie-player>
+        <p>Display Videos</p>
+    </div>
+    <div class="card-splash" onclick="location.href='domeeting.html'">
+        <lottie-player src="animations/domeeting.json"
+        background="transparent"
+        speed="1"
+        loop autoplay></lottie-player>
+        <p>Do meeting</p>
+    </div>
+    <div class="card-splash" onclick="location.href='joinmeeting.html'">
+        <lottie-player src="animations/join.json"
+        background="transparent"
+        speed="1"
+        loop autoplay></lottie-player>
+        <p>Join meeting now!</p>
+    </div>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
